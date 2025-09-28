@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benedettini Daniel</title>
+  <!-- Typography: Google Fonts (customize families/weights as desired) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header: Minimal, centered name -->
+  <header class="site-header">
+    <div class="container">
+      <!-- Header title (edit your name/text here) -->
+      <h1 class="site-title">Benedettini Daniel</h1>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container about__wrap">
+        <div class="about__photo" aria-label="Professional photo placeholder"></div>
+        <div class="about__text">
+          <h2>About Me</h2>
+          <p>
+            AI student at University of Milan, Bicocca and Pavia.<br>
+            Currently working on programming projects and AI-related projects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section: One centered card at a time with horizontal snap -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <!-- Section title (customize) -->
+        <h2>Projects</h2>
+        <p class="projects__subtitle">Take a scroll, stay a while</p>
+      </div>
+      <!-- Scroller: add/remove <article> for each project -->
+      <div class="projects__scroller" id="projects-scroller" aria-label="Project gallery">
+        <article class="project-card">
+          <div class="project-card__image" role="img" aria-label="Project image placeholder"></div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">MP3 Player</h3>
+            <div class="project-card__tags">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JS</span>
+            </div>
+            <a class="btn" href="https://den-bene.github.io/MP3-player/" target="_blank" rel="noopener">View Project</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-card__image" role="img" aria-label="Project image placeholder"></div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">To-Do List</h3>
+            <div class="project-card__tags">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JS</span>
+            </div>
+            <a class="btn" href="https://den-bene.github.io/ToDo-list/" target="_blank" rel="noopener">View Project</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-card__image" role="img" aria-label="Project image placeholder"></div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Loading...</h3>
+            <div class="project-card__tags">
+              <span class="badge">Python</span>
+              <span class="badge">AI</span>
+            </div>
+            <a class="btn" href="#" target="_blank" rel="noopener">View Project</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: CONTACT heading, contact details, rights text -->
+  <footer class="site-footer">
+    <div class="container footer__wrap">
+      <!-- Footer heading (customize) -->
+      <h2 class="footer__heading" aria-label="Contact section heading">CONTACT</h2>
+      <!-- Contact details (edit your info/links here) -->
+      <p><strong>Email</strong>: <a href="mailto:den.bene05@gmail.com">den.bene05@gmail.com</a></p>
+      <p><strong>Instagram</strong>: <a href="https://instagram.com/daniel_benedettini" target="_blank" rel="noopener">@daniel_benedettini</a></p>
+      <p><strong>Location</strong>: Milan, Italy</p>
+      <!-- Rights text (kept subtle) -->
+      <small class="footer__rights">© 2025 Benedettini Daniel — All rights reserved.</small>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

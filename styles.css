@@ -1,0 +1,420 @@
+/* =========================
+   1. CSS Reset/Normalize
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+}
+
+/* =========================
+   2. CSS Custom Properties
+   ========================= */
+:root {
+  /* Beige theme with black projects/header, orange about/footer */
+  --color-bg: #f4e9d8;            /* beige background */
+  --color-primary: #ff8a00;       /* orange accent */
+  --color-secondary: #111111;     /* black tone */
+  --color-accent: #ff8a00;
+  --color-text: #111111;          /* main text black */
+  --color-footer: #ff8a00;        /* orange footer */
+  --color-card-bg: #0e0e0e;       /* black cards */
+  --color-card-shadow: rgba(0, 0, 0, 0.25);
+  --color-skill-bg: #e0e0e0;
+  --color-skill-bar: #2d6cdf;
+
+  /* Fonts */
+  /* Fonts loaded from Google Fonts in index.html */
+  --font-main: 'Inter', system-ui, -apple-system, Arial, sans-serif;
+  --font-heading: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+/* =========================
+   3. Basic Typography & Spacing
+   ========================= */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.3rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+section {
+  margin-bottom: var(--space-lg);
+}
+
+ul {
+  padding-left: var(--space-sm);
+}
+
+/* =========================
+   4. Header & Navigation
+   ========================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--color-bg); /* beige header */
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.site-title {
+  text-align: center;
+  color: #000000; /* black name */
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+/* =========================
+   6. About Section
+   ========================= */
+.about {
+  background: var(--color-primary); /* orange about */
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+  padding: var(--space-md);
+}
+
+.about h2 { color: #ffffff; }
+
+.about__wrap {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.about__photo {
+  width: 140px;
+  height: 140px;
+  background-image: url('images/profile.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 1px solid #2a2a2a;
+}
+
+.about__text p {
+  color: #000000; /* white text on orange */
+  font-size: 1.05rem;
+}
+
+/* =========================
+   7. Projects Section (Grid Cards)
+   ========================= */
+.projects {
+  margin-top: var(--space-lg);
+}
+.projects .container { text-align: center; }
+.projects__subtitle { color: var(--color-secondary); opacity: 0.85; }
+
+.projects__scroller {
+  display: grid;
+  grid-auto-flow: column;
+  /* Show ~2-3 larger cards on desktop */
+  grid-auto-columns: minmax(380px, 32vw);
+  justify-content: start;
+  gap: var(--space-md);
+  overflow-x: auto;
+  padding: var(--space-md);
+  scroll-snap-type: x proximity;
+  scroll-padding: var(--space-md);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain; /* reduce scroll chaining/jank */
+  cursor: grab; /* grab to scroll */
+}
+
+.projects__scroller.dragging { cursor: grabbing; user-select: none; }
+
+.project-card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 12px var(--color-card-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px var(--color-card-shadow);
+}
+
+.project-card__image {
+  height: clamp(200px, 24vw, 320px);
+  background: linear-gradient(135deg, #1a1a1a, #171717);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Specific project images */
+.project-card:nth-child(1) .project-card__image {
+  background-image: url('images/mp3-player.png');
+}
+
+.project-card:nth-child(2) .project-card__image {
+  background-image: url('images/todo-list.png');
+}
+
+.project-card__body {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.project-card__title {
+  color: #ffffff; /* white on black cards */
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  text-align: center; /* center title per prompt */
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center; /* center tags */
+}
+
+.badge {
+  background: #ffffff; /* white badge */
+  border: 1px solid #e6e6e6;
+  color: #111111; /* dark text */
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.btn {
+  display: inline-block;
+  align-self: center; /* center button */
+  background: var(--color-primary);
+  color: #000;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #ffa733;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   8. Skills Section (Bars)
+   ========================= */
+#skills ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+}
+
+#skills li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.skill-bar {
+  flex: 1;
+  height: 12px;
+  background: var(--color-skill-bg);
+  border-radius: 6px;
+  margin-left: var(--space-xs);
+  overflow: hidden;
+}
+
+.skill-level {
+  display: block;
+  height: 100%;
+  background: var(--color-skill-bar);
+  border-radius: 6px;
+  transition: width 0.6s cubic-bezier(.4,2,.6,1);
+}
+
+/* Example: Add skill bars in HTML like:
+   <li>HTML <span class="skill-bar"><span class="skill-level" style="width:90%"></span></span></li>
+*/
+
+/* =========================
+   9. Contact Section
+   ========================= */
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: var(--space-md);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+}
+
+#contact label {
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+#contact input,
+#contact textarea {
+  padding: var(--space-xs);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border: 1.5px solid var(--color-primary);
+  outline: none;
+}
+
+#contact button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+#contact button:hover {
+  background: var(--color-accent);
+  color: var(--color-secondary);
+}
+
+/* Social links (add in HTML as needed) */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.social-links a {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--color-accent);
+  transform: scale(1.2);
+}
+
+/* =========================
+   10. Footer
+   ========================= */
+.site-footer {
+  background: var(--color-footer);
+  color: #ffffff;
+  text-align: center;
+  padding: calc(var(--space-md) + 0.5rem) 0;
+  font-size: 0.95rem;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  margin-top: var(--space-lg);
+}
+
+.footer__wrap {
+  display: grid;
+  gap: 10px;
+}
+
+.site-footer a { color: #000; text-decoration: underline; }
+.site-footer a:hover { color: #ffffff; } /* hover to white */
+.footer__wrap p { color: #000; } /* email, instagram, location in black */
+
+.footer__wrap p { margin: 0; }
+.footer__wrap p + p { margin-top: 4px; }
+
+/* Footer heading and rights */
+.footer__heading {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.footer__rights {
+  margin-top: 6px;
+  color: #000; /* rights text black */
+  opacity: 0.85;
+  display: block;
+}
+
+/* =========================
+   11. Responsive Enhancements
+   ========================= */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  .container {
+    padding: var(--space-sm);
+  }
+  .about__wrap { grid-template-columns: 1fr; text-align: center; }
+  .about__photo { margin: 0 auto; }
+  .projects__scroller { grid-auto-columns: 88vw; }
+}
+
+/* Fade-in utility (JS adds classes) */
+.fade-init { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(.4,2,.6,1), transform 0.8s cubic-bezier(.4,2,.6,1); }
+.fade-in { opacity: 1 !important; transform: none !important; }
