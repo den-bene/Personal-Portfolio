@@ -203,7 +203,7 @@ ul {
 
 /* Specific project images */
 .project-card:nth-child(1) .project-card__image {
-  background-image: url('images/JobScraper.png');
+  background-image: url('images/job-scraper.png');
 }
 
 .project-card:nth-child(2) .project-card__image {
