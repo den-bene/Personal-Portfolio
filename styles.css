@@ -202,11 +202,15 @@ ul {
 }
 
 /* Specific project images */
-.project-card:nth-child(1) .project-card__image {
-  background-image: url('images/mp3-player.png');
+.project-card:nth-child(2) .project-card__image {
+  background-image: url('images/jobscraper.png');
 }
 
 .project-card:nth-child(2) .project-card__image {
+  background-image: url('images/mp3-player.png');
+}
+
+.project-card:nth-child(3) .project-card__image {
   background-image: url('images/todo-list.png');
 }
 
@@ -289,10 +293,6 @@ ul {
   border-radius: 6px;
   transition: width 0.6s cubic-bezier(.4,2,.6,1);
 }
-
-/* Example: Add skill bars in HTML like:
-   <li>HTML <span class="skill-bar"><span class="skill-level" style="width:90%"></span></span></li>
-*/
 
 /* =========================
    9. Contact Section
