@@ -8,7 +8,7 @@ import ProjectCard from "./project-card"
 const projects = [
   {
     title: "Cardojo",
-    url: "https://cardojo-i90vb0evg-danielbenedettini-9504s-projects.vercel.app/",
+    url: "https://cardojo.vercel.app",
     description: "Flashcard learning app with spaced repetition algorithm",
     tags: ["Next.js", "React", "Tailwind CSS"],
   },
@@ -159,29 +159,6 @@ export default function Projects() {
                 <ProjectCard project={project} />
               </div>
             ))}
-          </div>
-
-          {/* Navigation Arrows */}
-          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none px-2">
-            <button
-              onClick={() => scroll("left")}
-              className="pointer-events-auto p-3 rounded-full bg-accent text-white hover:bg-accent/90 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-accent/50"
-              aria-label="Previous project"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <button
-              onClick={() => scroll("right")}
-              className="pointer-events-auto p-3 rounded-full bg-accent text-white hover:bg-accent/90 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-accent/50"
-              aria-label="Next project"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>

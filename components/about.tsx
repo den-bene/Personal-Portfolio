@@ -51,9 +51,8 @@ export default function About() {
           style={{ transitionDelay: inView ? "100ms" : "0ms" }}
         >
           <p className="text-lg leading-relaxed text-foreground">
-            I'm a full-stack developer from Milan, Italy, passionate about creating elegant solutions to complex
-            problems. Currently studying Computer Science and working on programming projects alongside AI-related
-            applications.
+            I'm an AI student at the University of Milan, University of Bicocca and University of Pavia.
+            Currently working on programming projects and AI-related projects.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
